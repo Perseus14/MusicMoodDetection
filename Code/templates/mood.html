@@ -43,12 +43,12 @@ body, html {
 
 
 .caption {
-  position: absolute;
+  /*position: absolute;
   left: 0;
   top: 50%;
   width: 100%;
   text-align: center;
-  color: #000;
+  color: #000; */
 }
 
  img {
@@ -64,11 +64,12 @@ body, html {
 
 
 <div class="bgimg-1">
-	<div caption>
+	<div caption align="center"> <br>
+			<h3><font color="white"><i> {{ mood }} </i></font></h3> <br>
 	{% for (name,artists,p_url,img_url,_) in tracks %}
    		
 		<img src="../static/results/{{ mood }}/{{ name }}.jpeg" alt="Avatar" width="64">
-		{{ name }}, {{ artists[0] }} <br>
+		<p> <font color = "white"> <b> {{ name }} </b> by <i> {{ artists[0] }} </i> </font></p>
 		<audio controls>
 			<source src="../static/results/{{ mood }}/{{ name }}.mpeg" type="audio/mpeg">
 		</audio>
