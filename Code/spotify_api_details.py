@@ -39,5 +39,5 @@ for mood in Moods:
 	track_list_details = sorted(track_list_details, key = lambda x: x[-1], reverse=True)
 	map_tracks_to_mood[mood] = track_list_details	
 
-with open('../models/mood_model.pkl','wb') as fin:	
+with open('../models/mood_model_py2.pkl','wb') as fin:	
 	pickle.dump(map_tracks_to_mood, fin, protocol=pickle.HIGHEST_PROTOCOL)	

@@ -2,7 +2,7 @@ import pickle
 import requests
 import os, errno
 
-PKL_MODEL = '../models/mood_model.pkl'
+PKL_MODEL = '../models/mood_model_py2.pkl'
 
 Moods = ['Peaceful','Upbeat','Happy','Tender','Romantic','Sensual','Energizing','Chill','Cool','Heartbreaking','Aggressive','Sad']
 
@@ -49,8 +49,9 @@ def recommender(mood,n=5):
 			ind+=1	
 	return recommended_tracks
 
+'''
 #Testing
-RESULT_FOLDER = 'results'	
+RESULT_FOLDER = 'static/results'	
 for mood in Moods:
 	results = recommender(mood,100)
 
@@ -65,7 +66,7 @@ for mood in Moods:
 			store_media(img_url,name,MOOD_RES_FOLDER)
 		if(mp3_url):	
 			store_media(mp3_url,name,MOOD_RES_FOLDER)
-		
+'''		
 		
 					
 					 

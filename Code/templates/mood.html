@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<style type="text/CSS">
+/*html { 
+  background: url(../static/photo-1468164016595-6108e4c60c8b.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+*/
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("../static/photo-1468164016595-6108e4c60c8b.jpg");
+  height: 100%;
+}
+
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+ img {
+    border-radius: 50%;
+}
+
+</style>
+
+
+</head>
+
+<body style="background-image:url(../static/photo-1468164016595-6108e4c60c8b.jpg)">
+
+
+<div class="bgimg-1">
+	<div caption>
+	{% for (name,artists,p_url,img_url,_) in tracks %}
+   		
+		<img src="../static/results/{{ mood }}/{{ name }}.jpeg" alt="Avatar" width="64">
+		{{ name }}, {{ artists[0] }} <br>
+		<audio controls>
+			<source src="../static/results/{{ mood }}/{{ name }}.mpeg" type="audio/mpeg">
+		</audio>
+	<br>
+	{% endfor %}
+ 	</div>
+	
+</div>
+
+	 
+
+
+</body>
+</html>

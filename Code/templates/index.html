@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<style type="text/CSS">
+/*html { 
+  background: url(../static/photo-1468164016595-6108e4c60c8b.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+*/
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("../static/background.jpg");
+  height: 100%;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
+.btn-circle.btn-xl {
+  width: 120px;
+  height: 120px;
+  padding: 0px 0px;
+  font-size: 15px;
+  line-height: 1.33;
+  border-radius: 50%;
+  background: radial-gradient(circle at 100px 100px, #000);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+  	-moz-box-sizing: border-box;
+		-o-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	body {
+		width: 100%;
+		height: 100%;
+		font-family: "helvetica neue", helvetica, arial, sans-serif;
+		font-size: 13px;
+		text-align: center;
+		background: #333 url('http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/low_contrast_linen.png');
+	}
+
+	ul {
+		margin: 30px auto;
+		text-align: center;
+	}
+
+	li {
+		list-style: none;
+		position: relative;
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+	}
+
+	@-moz-keyframes rotate {
+		0% {transform: rotate(0deg);}
+		100% {transform: rotate(-360deg);}
+	}
+
+	@-webkit-keyframes rotate {
+		0% {transform: rotate(0deg);}
+		100% {transform: rotate(-360deg);}
+	}
+
+	@-o-keyframes rotate {
+		0% {transform: rotate(0deg);}
+		100% {transform: rotate(-360deg);}
+	}
+
+	@keyframes rotate {
+		0% {transform: rotate(0deg);}
+		100% {transform: rotate(-360deg);}
+	}
+
+	.round {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 120%;
+		height: 120%;
+		/*padding-top: 35px;*/		
+		text-decoration: none;		
+		font-size: 18px;				
+		/*text-align: center;
+		text-shadow: 0 1px 0 rgba(255,255,255,.7);
+		letter-spacing: -.065em;
+		font-family: "Hammersmith One", sans-serif;*/		
+		-webkit-transition: all .25s ease-in-out;
+		-o-transition: all .25s ease-in-out;
+		-moz-transition: all .25s ease-in-out;
+		transition: all .25s ease-in-out;
+		box-shadow: 2px 2px 7px rgba(0,0,0,.2);
+		border-radius: 300px;
+		z-index: 1;
+		border-width: 0px;
+		border-style: solid;
+	}
+	
+
+	.round:hover .bkg-img {
+		display: none;
+	}
+
+	.round:hover {
+		width: 130%;
+		height: 130%;
+		left: -15%;
+		top: -15%;
+		font-size: 25px;
+		padding-top: 38px;
+		-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+		-o-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+		-moz-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+		box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+		z-index: 2;
+		border-size: 10px;
+		-webkit-transform: rotate(-360deg);
+		-moz-transform: rotate(-360deg);
+		-o-transform: rotate(-360deg);
+		transform: rotate(-360deg);
+	}
+
+	.round span.round {
+		display: block;
+		opacity: 0;
+		-webkit-transition: all .5s ease-in-out;
+		-moz-transition: all .5s ease-in-out;
+		-o-transition: all .5s ease-in-out;
+		transition: all .5s ease-in-out;
+		font-size: 1px;
+		border: none;
+		padding: 40% 20% 0 20%;
+		color: #fff;
+	}
+
+	.round span.round:hover {
+		opacity: .85;
+		font-size: 16px;
+		-webkit-text-shadow: 0 1px 1px rgba(0,0,0,.5);
+		-moz-text-shadow: 0 1px 1px rgba(0,0,0,.5);
+		-o-text-shadow: 0 1px 1px rgba(0,0,0,.5);
+		text-shadow: 0 1px 1px rgba(0,0,0,.5);	
+	}
+
+
+a.Peaceful {
+		background-color: #add8e6;
+		color: rgba(255,255,255,1);
+		border-color: #add8e6;
+	}
+
+a.Peaceful:hover {
+		color: #add8e6;
+	}
+
+.Peaceful {
+	background: #add8e6;
+}
+
+a.Upbeat {
+		background-color: #ff6600;
+		color: rgba(255,255,255,1);
+		border-color: #ff6600;
+}
+
+a.Upbeat:hover {
+		color: #ff6600;
+}
+
+.Upbeat {background-color: #ff6600;}
+
+a.Happy {
+		background-color: #ffff00;
+		color: rgba(255,255,255,1);
+		border-color: #ffff00;
+}
+
+a.Happy:hover {
+		color: #ffff00;
+}
+
+.Happy {background-color: #ffff00;}
+
+a.Tender {
+		background-color: #8080ff;
+		color: rgba(255,255,255,1);
+		border-color: #8080ff;
+}
+
+a.Tender:hover {
+		color: #8080ff;
+}
+
+.Tender {background-color: #8080ff;}
+
+a.Romantic {
+		background-color: #9932CC;
+		color: rgba(255,255,255,1);
+		border-color: #9932CC;
+}
+
+a.Romantic:hover {
+		color: #9932CC;
+}
+
+.Romantic {background-color: #9932CC;}
+
+a.Sensual {
+		background-color: #ff99ff;
+		color: rgba(255,255,255,1);
+		border-color: #ff99ff;
+}
+
+a.Sensual:hover {
+		color: #ff99ff;
+}
+
+.Sensual {background-color: #ff99ff;}
+
+a.Cool {
+		background-color: #49a19a;
+		color: rgba(255,255,255,1);
+		border-color: #49a19a;
+}
+
+a.Cool:hover {
+		color: #49a19a;
+}
+
+.Cool {background-color: #add8e6;}
+
+a.Chill {
+		background-color: #4a708b;
+		color: rgba(255,255,255,1);
+		border-color: #4a708b;
+}
+
+a.Chill:hover {
+		color: #4a708b;
+}
+
+.Chill {background-color: #4a708b;}
+
+a.Energize {
+		background-color: #ffa500;
+		color: rgba(255,255,255,1);
+		border-color: #ffa500;
+}
+
+a.Energize:hover {
+		color: #ffa500;
+}
+
+.Energize {background-color: #ffa500;}
+
+a.Aggressive {
+		background-color: #ff0000;
+		color: rgba(255,255,255,1);
+		border-color: #ff0000;
+}
+
+a.Aggressive:hover {
+		color: #ff0000;
+}
+
+.Aggressive {background-color: #ff0000;}
+
+a.Heartbreak {
+		background-color: #191970;
+		color: rgba(255,255,255,1);
+		border-color: #191970;
+}
+
+a.Heartbreak:hover {
+		color: #191970;
+}
+
+.Heartbreak {background-color: #191970;}
+
+a.Sad {
+		background-color: #808080;
+		color: rgba(255,255,255,1);
+		border-color: #808080;
+}
+
+a.Sad:hover {
+		color: #808080;
+}
+
+.Sad {background-color: #808080;}
+
+ img {
+    border-radius: 50%;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+
+<div class="bgimg-1">
+  <div class="caption">
+<!--  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<img src="../static/results/Happy/1950.jpeg" alt="Avatar" width="64">
+
+	<audio controls> <source src="../static/results/Happy/1950.mpeg" type="audio/mpeg"></audio> -->
+
+ <!-- <figure class="ball">
+    <span class="shadow">
+    <span class="iris"></span></span>
+  </figure> -->
+	
+		<ul>
+			<li>
+				<a href="{{ url_for('Peaceful') }}" class="round Peaceful">
+					<div class="bkg-img">
+						<img src="../static/peaceful.jpg" alt="Avatar" width="120" height="120">
+					</div>
+						<i>Peaceful</i>
+					<span class="round">
+						Relax with this Peaceful Indie Ambient mix
+					</span>
+				</a>
+			</li> &nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Upbeat') }}" class="round Upbeat">
+					<div class="bkg-img">
+						<img src="../static/upbeat.jpeg" alt="Avatar" width="120" height="120">
+					</div>
+						<i> Upbeat </i>
+					<span class="round">
+						Feel good dance music. 
+					</span>
+				</a>
+			</li> &nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Happy') }}" class="round Happy">
+					<div class="bkg-img">
+						<img src="../static/happy.jpeg" alt="Avatar" width="120" height="120">
+					</div>
+					<i> Happy </i>
+					<span class="round">
+						Hits to boost your mood and fill you with happiness!
+					</span>
+				</a>
+			</li>&nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Tender') }}" class="round Tender">
+					<div class="bkg-img">
+						<img src="../static/tender.jpeg" alt="Avatar" width="120">
+					</div>
+					<i>Tender</i>
+					<span class="round">
+						Raw, sentimental feels.
+					</span>
+				</a>
+			</li> &nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Romantic') }}" class="round Romantic">
+					<div class="bkg-img">
+						<img src="../static/romantic.jpeg" alt="Avatar" width="120" height="120">
+					</div>
+					<i> Romantic </i>
+					<span class="round">
+						Because we all deserve great pop love songs. 
+					</span>
+				</a>
+			</li> &nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Sensual') }}" class="round Sensual">
+					<div class="bkg-img">
+						<img src="../static/sensual.jpeg" alt="Avatar" width="120">
+					</div>
+					<i> Sensual </i>
+					<span class="round">
+						Sensual silky sounds for the sheets.
+					</span>
+				</a>
+			</li>&nbsp; &nbsp; &nbsp; &nbsp;
+		</ul>
+
+	<!--	{% for mood in moods[:6] %}
+				<button type="button" class="btn btn-circle btn-xl {{ mood }}"> <i><b> {{ mood }} </b></i> </button>
+		{% endfor %} -->
+		<br><br><span class="border">Moods</span><br><br>
+	
+		<ul>
+			<li>
+				<a href="{{ url_for('Cool') }}" class="round Cool">
+					<div class="bkg-img">
+						<img src="../static/cool.jpeg" alt="Avatar" width="120" height="120">
+					</div>
+					<i>Cool</i>
+					<span class="round">
+						Research shows that soft, relaxing music aids in workout recovery.
+					</span>
+				</a>
+			</li> &nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Energize') }}" class="round Energize">
+					<div class="bkg-img">
+						<img src="../static/energizing.jpeg" alt="Avatar" width="120" height="120">
+					</div>
+					<i> Energize </i>
+					<span class="round">
+						Pick up the pace to energetic electronic tunes and remixes
+					</span>
+				</a>
+			</li> &nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Chill') }}" class="round Chill">
+					<div class="bkg-img">
+						<img src="../static/chill.jpeg" alt="Avatar" width="120" height="120">
+					</div>
+					<i> Chill </i>
+					<span class="round">
+						Kick back to the best new and recent chill tunes.
+					</span>
+				</a>
+			</li>&nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Aggressive') }}" class="round Aggressive">
+					<div class="bkg-img">
+						<img src="../static/workout.jpeg" alt="Avatar" width="120" height="120">
+					</div>
+					<i>Aggressive</i>
+					<span class="round">
+						Aggressive trap and bass for the gym
+					</span>
+				</a>
+			</li> &nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Heartbreak') }}" class="round Heartbreak">
+					<div class="bkg-img">
+						<img src="../static/heartbreak.jpeg" alt="Avatar" width="120" height="120">
+					</div>
+					<i> Heartbreak </i>
+					<span class="round">
+						Heartbroken? These songs might just help...
+					</span>
+				</a>
+			</li> &nbsp; &nbsp; &nbsp; &nbsp;
+
+			<li>
+				<a href="{{ url_for('Sad') }}" class="round Sad">
+					<div class="bkg-img">
+						<img src="../static/sad.jpeg" alt="Avatar" width="120" height="120">
+					</div>
+					<i> Sad </i>
+					<span class="round">
+						Beautiful songs to break your heart...
+					</span>
+				</a>
+			</li>&nbsp; &nbsp; &nbsp; &nbsp;
+		</ul>	
+	
+
+	<!--	{% for mood in moods[6:] %}
+			<button type="button" class="btn btn-circle btn-xl {{ mood }}"> <i><b> {{ mood }} </b></i> </button>
+		{% endfor %} -->
+	
+  </div>  
+</div>
+
+	 
+
+
+</body>
+</html>
