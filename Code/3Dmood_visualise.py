@@ -6,6 +6,7 @@ import pickle
 PKL_MODEL = '../models/mood_audio_features_py2.pkl'
 
 Moods = ['Peaceful','Upbeat','Happy','Tender','Romantic','Sensual','Energizing','Chill','Cool','Heartbreaking','Aggressive','Sad']
+#Moods = ['Peaceful','Upbeat','Romantic','Sad']
 Colors = ['#add8e6','#ff6600','#ffff00','#8080ff','#9932CC','#ff99ff','#ffa500','#4a708b','#49a19a','#191970','#ff0000','#808080']
 
 mood_features = pickle.load(open(PKL_MODEL,'rb'))

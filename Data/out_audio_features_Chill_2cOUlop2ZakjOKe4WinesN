@@ -1,0 +1,20 @@
+{
+  "danceability" : 0.726,
+  "energy" : 0.431,
+  "key" : 0,
+  "loudness" : -6.666,
+  "mode" : 1,
+  "speechiness" : 0.0554,
+  "acousticness" : 0.0139,
+  "instrumentalness" : 0,
+  "liveness" : 0.0540,
+  "valence" : 0.860,
+  "tempo" : 85.889,
+  "type" : "audio_features",
+  "id" : "2cOUlop2ZakjOKe4WinesN",
+  "uri" : "spotify:track:2cOUlop2ZakjOKe4WinesN",
+  "track_href" : "https://api.spotify.com/v1/tracks/2cOUlop2ZakjOKe4WinesN",
+  "analysis_url" : "https://api.spotify.com/v1/audio-analysis/2cOUlop2ZakjOKe4WinesN",
+  "duration_ms" : 188174,
+  "time_signature" : 4
+}

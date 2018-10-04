@@ -21,11 +21,11 @@ def download_audio_features(map_tracks_to_mood):
 	for mood in Moods:
 		track_list_details = map_tracks_to_mood[mood]
 		for _,sp_id,_,_,_,_ in track_list_details:
-			command = 'curl -X "GET" "https://api.spotify.com/v1/audio-features/' +sp_id +'" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQD8hG5rHiR6AzWJda6Qh3ooNUXerFjwIO76QepeKT8r5q3Mjfc_UJfSGg0zVWnmlcd3Y2TMYCP8knc-CqQS52GfYakswBUe-l13GwKrZhveTCsFmVxX4NonsOdNLsbGlMwIXD19r_7JOE0_9llKQEsrPbWo6xnpAg" > out_audio_features_'+mood+'_'+sp_id
+			command = 'curl -X "GET" "https://api.spotify.com/v1/audio-features/' +sp_id +'" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQCZOi3hwliA0y6G0hHrGDdiQ59-qI89C4Iy32QKxFP8WxnsPsStzm2M0Wt7pcIw8hzrQSesxfCiuF_68vBtUBlez6fy54U8Zb_-cuxYAP5_LtY5XHDiou1JnXKz-tIYXJXq18dUM3NAVNuXOv1uUzUSOWim2J4LwQ" > ../Data/out_audio_features_'+mood+'_'+sp_id
 			os.system(command)
 
 #download_playlist()
-#download_audio_features(map_tracks_to_mood)
+
 
 map_tracks_to_mood = {}	
 for mood in Moods:
@@ -48,6 +48,7 @@ for mood in Moods:
 	track_list_details = sorted(track_list_details, key = lambda x: x[-1], reverse=True)
 	map_tracks_to_mood[mood] = track_list_details	
 
+#download_audio_features(map_tracks_to_mood)
 
 new_map_tracks_to_mood = {}
 mood_audio_features = {}
@@ -57,13 +58,16 @@ for mood in Moods:
 	mood_audio_features[mood] = []
 	for track in track_list_details:
 		name, sp_id, artist_names, preview_url, image_url, popularity = track
-		with open('../Data/out_audio_features'+mood+'_'+sp_id) as fin:
+		print('../Data/out_audio_features_'+mood+'_'+sp_id)
+		with open('../Data/out_audio_features_'+mood+'_'+sp_id) as fin:
 			json_output = json.loads(fin.read())
 		danceability = json_output['danceability']
 		energy = json_output['energy']
-		valence = json_output['valence']		
-		mood_audio_features[mood].append((danceability,energy,valence))
-		new_track_list_details.append((name,spotify_id,artist_names,preview_url,image_url,popularity,danceability,energy,valence))
+		valence = json_output['valence']
+		loudness = float(json_output['loudness']+60)/60.0
+		tempo = float(json_output['tempo']-20)/480.0		
+		mood_audio_features[mood].append((danceability,energy,valence,loudness,tempo))
+		new_track_list_details.append((name,spotify_id,artist_names,preview_url,image_url,popularity,energy,valence))
 	new_track_list_details = sorted(new_track_list_details, key = lambda x: x[5], reverse=True)
 	new_map_tracks_to_mood[mood] = new_track_list_details
 
